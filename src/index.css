@@ -5,13 +5,13 @@
 @tailwind utilities;
 
 .btn {
-    @apply bg-brand-secondary min-w-[237px] rounded-3xl border-0 p-5 text-white
+  @apply min-w-[237px] rounded-3xl border-0 bg-brand-secondary p-5 text-white;
 }
 
 .btn--accent {
-    @apply bg-brand-accent
+  @apply bg-brand-accent;
 }
 
 body {
-    @apply font-montserrat
+  @apply font-montserrat;
 }
