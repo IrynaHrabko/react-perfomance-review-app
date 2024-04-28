@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-main': '#E5F4E3',
-        'brand-secondary': '#605856',
-        'brand-accent': '#1C6E8C',
-        'brand-strong': '#274156',
-        white: '#fff',
+        'brand-main': '#A6A2A2',
+        'brand-secondary': '#C1839F',
+        'brand-accent': '#406E8E',
+        'brand-strong': '#00171F',
+        'brand-white': '#E5E6E4',
       },
     },
     fontFamily: {

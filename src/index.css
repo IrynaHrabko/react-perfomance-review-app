@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 .btn {
-  @apply min-w-[237px] rounded-3xl border-0 bg-brand-secondary p-5 text-white;
+  @apply min-w-[237px] rounded-3xl border-0 bg-brand-secondary p-5 text-white hover:bg-brand-secondary focus:outline-none focus:ring focus:ring-brand-secondary active:opacity-65;
 }
 
 .btn--accent {
@@ -14,4 +14,19 @@
 
 body {
   @apply font-montserrat;
+  
 }
+
+div {
+
+  width: 100%;
+  margin: auto;
+}
+
+
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
