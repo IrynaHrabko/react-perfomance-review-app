@@ -8,7 +8,7 @@ export default {
         'brand-secondary': '#C1839F',
         'brand-accent': '#406E8E',
         'brand-strong': '#00171F',
-        'brand-white': '#E5E6E4',
+        'brand-white': '#EDF5FC',
       },
     },
     fontFamily: {
