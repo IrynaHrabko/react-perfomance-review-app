@@ -3,10 +3,9 @@ import { getAuth, signInWithPopup, signOut } from 'firebase/auth';
 import { app } from '/src/firebase';
 import { GithubAuthProvider } from "firebase/auth";
 import { GoogleAuthProvider } from 'firebase/auth';
+import AppHeader from './AppHeader';
 
 const provider = new GithubAuthProvider();
-
-
 
 
 const AuthProvider = () => {
@@ -28,6 +27,7 @@ const AuthProvider = () => {
     signInWithPopup(auth, githubAuthProvider)
       .then((result) => {
         const githubUser = result.user;
+        console.log(githubUser)
         setUser(githubUser);
       })
       .catch((error) => {
@@ -42,33 +42,26 @@ const AuthProvider = () => {
   };
 
   return user != null ? (
+    
     <>
-      <div className=' flex flex-col justify-start text-brand-strong'>
-        <img src={user.photoURL} alt={user.displayName} width='100' height='100' />
-        <div>
-          <p>
-          {user.displayName}
-          </p>
-          <p>
-            {user.email}
-          </p>
-        </div>
-      </div>
-
+    <AppHeader user={user} />
+  
 
       <button
-        className='mb-2 me-2 inline-flex items-center rounded-lg bg-brand-accent px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-brand-secondary focus:outline-none focus:ring focus:ring-brand-secondary active:opacity-65'
+        className='inline-flex rounded-lg bg-brand-accent px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-brand-secondary focus:outline-none focus:ring focus:ring-brand-secondary active:opacity-65'
         onClick={() => logOut()}
       >
         Logout
       </button>
+      
     </>
   ) : (
     <>
+    <div className="text-center">
       <button
         onClick={() => startLoginWithGoogle()}
         type='button'
-        className='mb-2 me-2 inline-flex items-center rounded-lg bg-brand-accent px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-brand-secondary focus:outline-none focus:ring focus:ring-brand-secondary active:opacity-65'
+        className=' mt-5 mb-2 me-2 inline-flex items-center rounded-lg bg-brand-accent px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-brand-secondary focus:outline-none focus:ring focus:ring-brand-secondary active:opacity-65'
       >
         <svg
           className='me-2 h-4 w-4'
@@ -103,7 +96,10 @@ const AuthProvider = () => {
           </svg>
         Sign in with Github
       </button>
+    </div>
+      
     </>
+    
   );
   
 };

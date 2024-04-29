@@ -1,23 +1,32 @@
-import AuthProvider from './AuthProvider.jsx';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import AuthProvider from './AuthProvider';
 
-const AppHeader = () => {
+const AppHeader = ({ user }) => {
   let selectedLanguage = useSelector(
-    (state) => state.tableFilterReducer.selectedLanguage,
+    (state) => state.tableFilterReducer.selectedLanguage
   );
 
   return (
     <>
-      <h1
-        className={
-          'text-center font-playfair-display text-3xl font-bold text-amber-950'
-        }
-      >
-        AppHeader
+      <header className='bg-brand-main p-2'>
+
+      {!user && <AuthProvider />}
+      <h1 className={'font-playfair-display text-2xl font-bold text-main-strong'}>
+
+        {user && `Привіт, ${user.displayName}`}
       </h1>
-      <AuthProvider />
-      current selected lang = {selectedLanguage}
+      
+      {user && user.photoURL && (
+        <img src={user.photoURL} alt={user.displayName} width='50' height='50' />
+      )}
+      {user && user.email && (
+        <p>{user.email}</p>
+      )}
+
+
+      <div className='text-right'>Current selected language: {selectedLanguage}</div>
+    </header>
     </>
   );
 };
