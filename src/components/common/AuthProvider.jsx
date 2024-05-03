@@ -48,7 +48,7 @@ const AuthProvider = () => {
   
 
       <button
-        className='inline-flex rounded-lg bg-brand-accent px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-brand-secondary focus:outline-none focus:ring focus:ring-brand-secondary active:opacity-65'
+        className='text-center inline-flex rounded-lg bg-brand-accent px-5 py-2.5  text-sm font-medium text-white hover:bg-brand-secondary focus:outline-none focus:ring focus:ring-brand-secondary active:opacity-65'
         onClick={() => logOut()}
       >
         Logout
