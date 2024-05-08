@@ -6,16 +6,17 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateSelectedLanguageAction } from '../state/tableFilters/tableFIlters.actions.js';
 import { getLanguages } from '../state/tableFilters/tableFilters.thunk.js';
+import { updateSelectedLanguage } from '../state/tableFilters/tableFilters.slice';
 
 const DevelopersPage = () => {
   const db = getFirestore(app);
   let [devs, setDevs] = useState([]);
   let [loading, setLoading] = useState(true);
   let languages = useSelector(
-    (state) => state.tableFilterReducer.availableLanguages,
+    (state) => state.tableFilters.availableLanguages,
   );
   let selectedLanguage = useSelector(
-    (state) => state.tableFilterReducer.selectedLanguage,
+    (state) => state.tableFilters.selectedLanguage,
   );
   const dispatch = useDispatch();
 
@@ -46,9 +47,9 @@ const DevelopersPage = () => {
           <li key={index}>
             <button
               onClick={() => {
-                dispatch(updateSelectedLanguageAction(item.name));
+                dispatch(updateSelectedLanguage(item.name));
               }}
-              className={`${selectedLanguage.toLowerCase() === item?.name?.toLowerCase() ? 'font-bold text-red-600' : ''} uppercase`}
+              className={`${selectedLanguage.toLowerCase() === item?.name?.toLowerCase() ? 'font-bold text-brand-accent' : ''} uppercase`}
             >
               {item.name}
             </button>

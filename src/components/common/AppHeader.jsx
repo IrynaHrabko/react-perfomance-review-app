@@ -4,7 +4,7 @@ import AuthProvider from './AuthProvider';
 
 const AppHeader = ({ user }) => {
   let selectedLanguage = useSelector(
-    (state) => state.tableFilterReducer.selectedLanguage
+    (state) => state.tableFilters.selectedLanguage
   );
 
   return (
